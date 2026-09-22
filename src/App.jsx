@@ -1,3 +1,17 @@
+import ProductCard from "./components/ProductCard";
+
+const testProduct = {
+  title: "Test Sneakers",
+  category: "shoes",
+  price: 49.99,
+  description: "A comfy pair of test sneakers for trying things out.",
+  image: "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg",
+};
+
 export default function App() {
-  return <h1 className="text-3xl font-bold text-blue-600">Nexus Store</h1>
+  return (
+    <div className="p-8">
+      <ProductCard product={testProduct} />
+    </div>
+  );
 }
