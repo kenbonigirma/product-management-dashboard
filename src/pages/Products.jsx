@@ -7,6 +7,7 @@ export default function Products() {
   const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("all");
 
   useEffect(() => {
     async function fetchProducts() {
@@ -30,9 +31,17 @@ export default function Products() {
   if (error) {
     return <p className="p-6 text-red-600">{error}</p>;
   }
-  const filteredProducts = products.filter((product) =>
-  product.title.toLowerCase().includes(searchTerm.toLowerCase())
-);
+  const categories = [...new Set(products.map((product) => product.category))];
+  const filteredProducts = products.filter((product) => {
+  const matchesSearch = product.title
+    .toLowerCase()
+    .includes(searchTerm.toLowerCase());
+
+  const matchesCategory =
+    selectedCategory === "all" || product.category === selectedCategory;
+
+  return matchesSearch && matchesCategory;
+});
 
   return (
     <main className="p-6">
@@ -44,12 +53,29 @@ export default function Products() {
   onChange={(e) => setSearchTerm(e.target.value)}
   className="mb-6 w-full rounded border p-2"
  />
+ <select
+  value={selectedCategory}
+  onChange={(e) => setSelectedCategory(e.target.value)}
+  className="mb-6 rounded border p-2"
+>
+  <option value="all">All Categories</option>
 
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {filteredProducts.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </div>
+  {categories.map((category) => (
+    <option key={category} value={category}>
+      {category}
+    </option>
+  ))}
+</select>
+
+     <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+  {filteredProducts.length > 0 ? (
+    filteredProducts.map((product) => (
+      <ProductCard key={product.id} product={product} />
+    ))
+  ) : (
+    <p>No products found.</p>
+  )}
+</div>
     </main>
   );
 }
