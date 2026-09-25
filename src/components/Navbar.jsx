@@ -1,3 +1,4 @@
+import logo from "../assets/nexuslog.jpg";
 import { NavLink } from "react-router-dom";
 
 const links = [
@@ -10,19 +11,30 @@ const links = [
 
 export default function Navbar() {
   return (
-    <nav className="bg-white shadow">
-      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 p-4 sm:flex-row">
-        <span className="text-xl font-bold text-blue-600">Nexus Store</span>
-        <ul className="flex gap-4">
+  <nav className="bg-gray-950 shadow">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+        <NavLink to="/" className="flex items-center">
+  <img
+    src={logo}
+    alt="Nexus Store"
+    className="h-10 w-10 object-contain"
+  />
+  <span className="ml-2 text-xl font-bold text-blue-600">
+    Nexus Store
+  </span>
+    </NavLink>
+        <ul className="flex items-center gap-5">
           {links.map((link) => (
             <li key={link.to}>
               <NavLink
                 to={link.to}
                 end={link.to === "/"}
                 className={({ isActive }) =>
-                  isActive
-                    ? "border-b-2 border-blue-600 font-semibold text-blue-600"
-                    : "text-gray-700 hover:text-blue-600"
+                  `text-sm font-medium transition ${
+                    isActive
+                      ? "text-white"
+                      : "text-gray-300 hover:text-white"
+                  }`
                 }
               >
                 {link.label}
