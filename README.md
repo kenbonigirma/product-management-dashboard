@@ -1,16 +1,72 @@
-# React + Vite
+# Nexus Store 🛍️
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based product management dashboard built with **React, React Router, Tailwind CSS, and the Fake Store API**.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+* 🏠 Home page with featured products
+* 🛍️ Products page with products from Fake Store API
+* 🔍 Search products by title
+* 🏷️ Filter products by category
+* 📄 Product details page
+* 🛒 Shopping cart with quantity controls
+* ℹ️ About page
+* 📩 Contact form
+* 🔐 Login page
+* 📱 Responsive design
+* 🧭 Navigation with React Router
 
-## React Compiler
+## Technologies
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* React
+* React Router
+* Tailwind CSS
+* JavaScript
+* Fake Store API
+* Vite
 
-## Expanding the ESLint configuration
+## API
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Products are fetched from:
+
+`https://fakestoreapi.com/products`
+
+## Getting Started
+
+Clone the repository:
+
+```bash
+git clone <your-repository-url>
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Then open the local URL shown in the terminal.
+
+## Project Structure
+
+```text
+src/
+├── assets/
+├── components/
+├── context/
+├── pages/
+├── services/
+├── App.jsx
+├── main.jsx
+└── index.css
+```
+
+## Team Project
+
+This project was developed as a group React assignment.
