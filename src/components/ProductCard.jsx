@@ -1,4 +1,5 @@
-export default function ProductCard({ product }) {
+ import { Link } from "react-router-dom";
+ export default function ProductCard({ product }) {
   return (
     <div className="flex flex-col rounded-lg border bg-white p-4 shadow-sm transition hover:shadow-md">
       <img
@@ -12,9 +13,12 @@ export default function ProductCard({ product }) {
       <p className="mb-4 mt-2 line-clamp-3 text-sm text-gray-600">
         {product.description}
       </p>
-      <button className="mt-auto rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700">
-        View Details
-      </button>
+<Link
+  to={`/products/${product.id}`}
+  className="mt-auto rounded-xl bg-purple-600 px-4 py-3 text-center font-semibold text-white transition hover:bg-purple-700"
+>
+  View Details
+</Link>
     </div>
   );
 }
