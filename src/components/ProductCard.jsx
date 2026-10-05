@@ -1,5 +1,7 @@
  import { Link } from "react-router-dom";
+ import { useWishlist } from "../context/WishlistContext";
  export default function ProductCard({ product }) {
+  const { wishlist, addToWishlist, removeFromWishlist } = useWishlist();
   return (
     <div className="flex flex-col rounded-lg border bg-white p-4 shadow-sm transition hover:shadow-md">
       <img
@@ -13,6 +15,22 @@
       <p className="mb-4 mt-2 line-clamp-3 text-sm text-gray-600">
         {product.description}
       </p>
+      <button
+  onClick={() => {
+    const isInWishlist = wishlist.some((item) => item.id === product.id);
+
+    if (isInWishlist) {
+      removeFromWishlist(product.id);
+    } else {
+      addToWishlist(product);
+    }
+  }}
+  className="mb-3 rounded-xl border px-4 py-3 font-semibold"
+>
+  {wishlist.some((item) => item.id === product.id)
+    ? "❤️ Remove from Wishlist"
+    : "♡ Add to Wishlist"}
+</button>
 <Link
   to={`/products/${product.id}`}
   className="mt-auto rounded-xl bg-purple-600 px-4 py-3 text-center font-semibold text-white transition hover:bg-purple-700"
