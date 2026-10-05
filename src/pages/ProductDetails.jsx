@@ -47,7 +47,7 @@ const [added, setAdded] = useState(false);
         <div className="grid gap-10 rounded-2xl bg-white p-8 shadow-sm md:grid-cols-2">
           <div className="flex items-center justify-center">
             <img
-              src={product.image}
+              src={product.thumbnail}
               alt={product.title}
               className="h-96 w-full object-contain"
             />

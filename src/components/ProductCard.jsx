@@ -3,7 +3,7 @@
   return (
     <div className="flex flex-col rounded-lg border bg-white p-4 shadow-sm transition hover:shadow-md">
       <img
-        src={product.image}
+        src={product.thumbnail}
         alt={product.title}
         className="h-48 w-full object-contain"
       />

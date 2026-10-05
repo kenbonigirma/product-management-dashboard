@@ -38,7 +38,7 @@ export default function Cart() {
                 className="flex flex-col gap-5 rounded-2xl bg-white p-6 shadow-sm sm:flex-row sm:items-center"
               >
                 <img
-                  src={item.image}
+                  src={item.thumbnail}
                   alt={item.title}
                   className="h-32 w-32 object-contain"
                 />
